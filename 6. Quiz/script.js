@@ -3,7 +3,9 @@ let correctAnswers = 0;
 
 showQuestion();
 
-document.querySelector(".scoreArea button").addEventListener("click", restartQuiz);
+document
+  .querySelector(".scoreArea button")
+  .addEventListener("click", restartQuiz);
 
 function showQuestion() {
   if (questions[currentQuestion]) {
@@ -48,19 +50,21 @@ function optionClickEvent(e) {
 function finishQuiz() {
   let points = Math.floor((correctAnswers / questions.length) * 100);
 
-  if(points < 30) {
+  if (points < 30) {
     document.querySelector(".scoreText1").innerHTML = "Tá ruim?!";
-    document.querySelector('.scorePct').style.color = '#ff0000';
-  } else if(points >= 30 && points < 70) {
+    document.querySelector(".scorePct").style.color = "#ff0000";
+  } else if (points >= 30 && points < 70) {
     document.querySelector(".scoreText1").innerHTML = "Bom!!";
-    document.querySelector('.scorePct').style.color = '#ffff00';
-  } else  if(points >= 70) {
+    document.querySelector(".scorePct").style.color = "#ffff00";
+  } else if (points >= 70) {
     document.querySelector(".scoreText1").innerHTML = "Ótimo!!";
-    document.querySelector('.scorePct').style.color = '#00ff00';
+    document.querySelector(".scorePct").style.color = "#00ff00";
   }
 
-  document.querySelector('.scorePct').innerHTML = `Acertou ${points}%`;
-  document.querySelector('.scoreText2').innerHTML = `Você respondeu ${questions.length} questões e acertou ${correctAnswers}.`;
+  document.querySelector(".scorePct").innerHTML = `Acertou ${points}%`;
+  document.querySelector(
+    ".scoreText2"
+  ).innerHTML = `Você respondeu ${questions.length} questões e acertou ${correctAnswers}.`;
 
   document.querySelector(".scoreArea").style.display = "block";
   document.querySelector(".questionArea").style.display = "none";
@@ -68,7 +72,7 @@ function finishQuiz() {
 }
 
 function restartQuiz() {
-  correctAnswers = 0; 
+  correctAnswers = 0;
   currentQuestion = 0;
   showQuestion();
 }
